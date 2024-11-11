@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="/update" enctype="multipart/form-data" method="post">
+        <input type="text" name="id" hidden value="<%=editdata.id%>""  >
+        <input type="text" name="name" placeholder="name" value="<%= editdata.name %>">
+        <input type="text" name="subject" placeholder="subject" value="<%=editdata.subject%>">
+        <select name="city" id="">
+            <option value="" hidden>Select city</option>
+            <option value="Surat" <%=editdata.city === "Surat" ? "selected" : "" %>>Surat</option>
+            <option value="Rajkot" <%=editdata.city === "Rajkot" ? "selected" : "" %>>Rajkot</option>
+            <option value="Ahemdabad" <%=editdata.city === "Ahemdabad" ? "selected" : "" %>>Ahemdabad</option>
+            <option value="Vapi" <%=editdata.city === "Vapi" ? "selected" : "" %>>Vapi</option>
+        </select> 
+        <label for="">male</label>
+        <input type="radio" name="gender" value="male" <%=editdata.gender === "male" ? "checked" : "" %>>
+        <label for="">Female</label>
+        <input type="radio" name="gender" value="female" <%=editdata.gender === "female" ? "checked" : "" %>>
+        <br>
+        <label for="">cricket</label>
+        <input type="checkbox" name="hobby" value="cricket" <%=editdata.hobby.includes("cricket") ? "checked" : "" %>>
+        <label for="">game</label>
+        <input type="checkbox" name="hobby" value="game" <%=editdata.hobby.includes("game") ? "checked" : "" %>>
+        <label for="">dance</label>
+        <input type="checkbox" name="hobby" value="dance" <%=editdata.hobby.includes("dance") ? "checked" : "" %>>
+        <input type="file" name="image">
+        <img src="<%=editdata.image%>" width="10%" alt="">
+        <button type="submit">update</button>
+    </form>
+
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 const express = require("express");
 const port= 1900;
+const path=require("path")
 
 const app = express();
 const db=require("./config/db")
@@ -7,6 +8,8 @@ const admin =require("./config/schama");
 
 app.set("view engine","ejs");
 app.use(express.urlencoded())
+app.use("/public",express.static(path.join(__dirname,"public")));
+
 
 
 app.get("/", async(req,res)=>{
@@ -18,7 +21,6 @@ app.post("/send", async(req,res)=>{
     let data = await admin.create(req.body)
     data && res.redirect("/")
     console.log(req.body);
-    
 })
 app.get("/delete",async(req,res)=>{
     let data = await admin.findByIdAndDelete(req.query.id)
@@ -37,7 +39,7 @@ app.post("/update",async(req,res)=>{
 
 
 app.listen(port,(err)=>{
-    err ? console.log(err) : console.log("server"+ port);
+    err ? console.log(err) : console.log("server" , + port);
     
     
 })

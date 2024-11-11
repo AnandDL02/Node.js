@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/update" enctype="multipart/form-data" method="post">
+        <input type="text" name="id" value="<%=data.id%>" hidden>
+        <input type="text" placeholder="name" name="name" value="<%=data.name%>">
+        <input type="text" placeholder="subject" name="subject" value="<%=data.subject%>">
+        <input type="text" placeholder="mark" name="mark" value="<%=data.mark%>">
+        <input type="file"  name="image" >
+        <img src="<%=data.image%>" width="40%" alt="">
+        <button type="submit">update</button>
+    </form>
+</body>
+</html>
