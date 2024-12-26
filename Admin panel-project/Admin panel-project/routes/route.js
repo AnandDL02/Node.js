@@ -15,5 +15,8 @@ route.post("/send" ,multer,indexclt.Addadmindata)
 route.get("/delete",indexclt.Addadmindelete)
 route.get("/edit",passport.checkAuthentication,indexclt.Addmineditdata)
 route.post("/update",multer,indexclt.Addminupdatedata)
+route.get ("/profile",indexclt.profile)
+route.get ("/changepass",indexclt.changepass)
+route.post("/checkpass",indexclt.checkpass);
 
 module.exports=route

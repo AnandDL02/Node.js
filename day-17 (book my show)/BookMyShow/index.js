@@ -6,8 +6,8 @@ const db= require("./config/db")
 const path =require("path")
 
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended:true}))
-app.use("/",require("./router/route"))
+app.use(express.urlencoded({extended:true}));
+app.use("/",require("./router/route"));
 app.use("/upload",express.static(path.join(__dirname,"upload")));
 app.use("/public",express.static(path.join(__dirname,"public")));
 

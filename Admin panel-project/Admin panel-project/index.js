@@ -22,7 +22,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(passport.AuthUser)
 
 app.use("/", require("./routes/route"))
 app.use(express.static(path.join(__dirname,"public")))

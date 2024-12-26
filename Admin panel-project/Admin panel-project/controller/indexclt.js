@@ -59,3 +59,32 @@ module.exports.Addmineditdata =("/edit",  async (req, res) => {
     let data = await adminschema.findByIdAndUpdate(req.body.id,req.body);
     data && res.redirect("/viewadmin");
   });
+
+  module.exports.profile=(req,res)=>{
+    res.render("profile");
+  }
+  module.exports.changepass=(req,res)=>{
+    res.render("changepass")
+  }
+  module.exports.checkpass = async(req,res)=>{
+    let user = req.user
+    console.log(user);
+    
+    if (req.body.oldpass == user.password) {
+        if (req.body.newpass!== user.password) {
+           if (req.body.newpass==req.body.confirmpass) {
+                let passchange=await adminschema.findByIdAndUpdate(user.id,{password:req.body.newpass})
+                res.redirect("/logout")
+           } else{
+            console.log("new password not match with confirm password");
+            
+           }
+        }else{
+            console.log("new password and old password must be different");
+        }
+        
+    }else{
+        console.log("old password is worng ");
+    }
+  }
+  
